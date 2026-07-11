@@ -1,0 +1,2514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Study Vid Suraj Mock Test</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#edf2f7;
+}
+
+.page{
+display:none;
+}
+
+.page.active{
+display:block;
+}
+/* ===== Ultra Premium Background ===== */
+
+body{
+margin:0;
+padding:0;
+font-family:'Segoe UI',sans-serif;
+background:
+radial-gradient(circle at top left,#60a5fa 0%,transparent 30%),
+radial-gradient(circle at bottom right,#22c55e 0%,transparent 30%),
+linear-gradient(135deg,#071226,#0f172a,#111827,#1e3a8a);
+background-size:cover;
+min-height:100vh;
+overflow-x:hidden;
+}
+
+/* ===== Title ===== */
+
+.title{
+
+text-align:center;
+
+font-size:56px;
+
+font-weight:900;
+
+color:white;
+
+margin-top:40px;
+
+letter-spacing:2px;
+
+text-shadow:
+
+0 0 15px rgba(255,255,255,.4),
+
+0 8px 25px rgba(0,0,0,.5);
+
+}
+
+/* ===== Menu ===== */
+
+.menu{
+
+width:720px;
+
+margin:50px auto;
+
+display:flex;
+
+flex-direction:column;
+
+gap:30px;
+
+}
+
+/* ===== Ultra 3D Button ===== */
+
+.menuBtn{
+
+position:relative;
+
+padding:28px;
+
+font-size:24px;
+
+font-weight:800;
+
+color:#fff;
+
+border:none;
+
+border-radius:24px;
+
+cursor:pointer;
+
+overflow:hidden;
+
+transition:.25s;
+
+box-shadow:
+
+0 18px 0 rgba(0,0,0,.45),
+
+0 35px 55px rgba(0,0,0,.45),
+
+inset 0 3px 5px rgba(255,255,255,.35),
+
+inset 0 -5px 8px rgba(0,0,0,.25);
+
+}
+
+.menuBtn::before{
+
+content:"";
+
+position:absolute;
+
+top:-60%;
+
+left:-20%;
+
+width:140%;
+
+height:70%;
+
+background:rgba(255,255,255,.28);
+
+transform:rotate(-8deg);
+
+transition:.35s;
+
+}
+
+.menuBtn:hover::before{
+
+top:110%;
+
+}
+
+.menuBtn:hover{
+
+transform:
+
+translateY(-8px)
+
+scale(1.02);
+
+filter:brightness(1.08);
+
+}
+
+.menuBtn:active{
+
+transform:translateY(10px);
+
+box-shadow:
+
+0 6px 0 rgba(0,0,0,.45),
+
+0 10px 20px rgba(0,0,0,.35);
+
+}
+
+/* ===== Colors ===== */
+
+.green{
+
+background:linear-gradient(180deg,#4ade80,#15803d);
+
+}
+
+.blue{
+
+background:linear-gradient(180deg,#38bdf8,#1d4ed8);
+
+}
+
+.orange{
+
+background:linear-gradient(180deg,#fbbf24,#d97706);
+
+}
+
+.red{
+
+background:linear-gradient(180deg,#fb7185,#be123c);
+
+}
+
+.purple{
+
+background:linear-gradient(180deg,#c084fc,#7e22ce);
+
+}
+#fullscreenBtn{
+
+position:fixed;
+
+top:18px;
+
+right:20px;
+
+padding:14px 26px;
+
+border:none;
+
+border-radius:16px;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+color:white;
+
+background:linear-gradient(180deg,#2563eb,#1d4ed8);
+
+box-shadow:
+0 8px 0 #1e40af,
+0 18px 30px rgba(0,0,0,.35);
+
+z-index:9999;
+
+transition:.2s;
+
+}
+
+#fullscreenBtn:hover{
+
+transform:translateY(-3px);
+
+}
+
+#fullscreenBtn:active{
+
+transform:translateY(6px);
+
+box-shadow:
+0 3px 0 #1e40af;
+
+}
+/* ===== Mock Screen ===== */
+
+.mockContainer{
+
+display:flex;
+
+gap:25px;
+
+padding:25px;
+
+align-items:flex-start;
+
+}
+
+/* Left Side */
+
+.leftPanel{
+
+flex:1;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(18px);
+
+border-radius:25px;
+
+padding:25px;
+
+box-shadow:
+
+0 20px 45px rgba(0,0,0,.35);
+
+}
+
+/* Right Side */
+
+.rightPanel{
+
+position:sticky;
+
+top:10px;
+
+width:260px;
+
+height:90vh;
+
+overflow-y:auto;
+
+overflow-x:hidden;
+
+background:white;
+
+padding:15px;
+
+border-radius:20px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+}
+
+/* Timer */
+
+.topBar{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:25px;
+
+}
+
+#timer{
+
+font-size:30px;
+
+font-weight:bold;
+
+color:#00ff95;
+
+text-shadow:0 0 12px #00ff95;
+
+}
+
+/* Question */
+
+.question{
+
+display:none;
+
+background:white;
+
+padding:28px;
+
+border-radius:22px;
+
+box-shadow:
+
+0 15px 35px rgba(0,0,0,.18);
+
+animation:fade .3s;
+
+}
+
+.question h3{
+
+font-size:24px;
+
+margin-bottom:25px;
+
+line-height:38px;
+
+}
+
+/* Options */
+
+.option{
+
+display:flex;
+
+align-items:center;
+
+padding:18px;
+
+margin:16px 0;
+
+border-radius:18px;
+
+background:#fff;
+
+border:2px solid #dcdcdc;
+
+cursor:pointer;
+
+font-size:19px;
+
+transition:.25s;
+
+box-shadow:
+
+0 8px 18px rgba(0,0,0,.08);
+
+}
+
+.option:hover{
+
+transform:translateX(8px);
+
+border-color:#2196F3;
+
+box-shadow:
+
+0 12px 28px rgba(33,150,243,.25);
+
+}
+
+.option input{
+
+transform:scale(1.4);
+
+margin-right:15px;
+
+}
+
+/* Buttons */
+
+.navigation{
+
+margin-top:30px;
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:15px;
+
+justify-content:center;
+
+}
+
+.navigation button{
+
+padding:16px 28px;
+
+border:none;
+
+border-radius:18px;
+
+font-size:17px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+color:white;
+
+transition:.2s;
+
+box-shadow:
+
+0 8px 0 rgba(0,0,0,.28),
+
+0 15px 28px rgba(0,0,0,.25);
+
+}
+
+.navigation button:hover{
+
+transform:translateY(-3px);
+
+}
+
+.navigation button:active{
+
+transform:translateY(6px);
+
+box-shadow:
+
+0 3px 0 rgba(0,0,0,.3);
+
+}
+
+#prevBtn{
+
+background:linear-gradient(#f59e0b,#d97706);
+
+}
+
+#nextBtn{
+
+background:linear-gradient(#38bdf8,#2563eb);
+
+}
+
+#submitBtn{
+
+background:linear-gradient(#ef4444,#b91c1c);
+
+}
+
+#reviewBtn{
+
+background:linear-gradient(#a855f7,#6d28d9);
+
+}
+
+#clearBtn{
+
+background:linear-gradient(#6b7280,#374151);
+
+}
+
+/* Palette */
+
+#palette{
+
+display:grid;
+
+grid-template-columns:repeat(4,55px);
+
+gap:12px;
+
+justify-content:center;
+
+}
+
+.pbtn{
+
+width:58px;
+
+height:58px;
+
+border:none;
+
+border-radius:15px;
+
+font-weight:bold;
+
+font-size:18px;
+
+cursor:pointer;
+
+background:white;
+
+box-shadow:
+
+0 7px 0 #bdbdbd,
+
+0 12px 22px rgba(0,0,0,.2);
+
+transition:.2s;
+
+}
+
+.pbtn:hover{
+
+transform:translateY(-2px);
+
+}
+
+.pbtn.active{
+
+background:#ffd54f;
+
+box-shadow:0 6px 0 #f57f17;
+
+}
+
+.pbtn.answered{
+
+background:#22c55e;
+
+color:white;
+
+box-shadow:0 6px 0 #15803d;
+
+}
+.correct{
+background:#4CAF50 !important;
+color:white !important;
+border:2px solid #2E7D32 !important;
+}
+
+.wrong{
+background:#f44336 !important;
+color:white !important;
+border:2px solid #b71c1c !important;
+}
+.resultBtn{
+
+padding:15px 28px;
+
+margin:10px;
+
+border:none;
+
+border-radius:18px;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+color:#fff;
+
+transition:.25s;
+
+box-shadow:0 10px 20px rgba(0,0,0,.30);
+
+}
+
+.homeBtn{
+
+background:linear-gradient(135deg,#00c853,#2e7d32);
+
+}
+
+.homeBtn:hover{
+
+transform:translateY(-3px) scale(1.05);
+
+box-shadow:0 15px 30px rgba(0,200,83,.45);
+
+}
+
+.restartBtn{
+
+background:linear-gradient(135deg,#ff9800,#ef6c00);
+
+}
+
+.restartBtn:hover{
+
+transform:translateY(-3px) scale(1.05);
+
+box-shadow:0 15px 30px rgba(255,152,0,.45);
+
+}
+
+.resultBtn:active{
+
+transform:translateY(4px);
+
+}
+</style>
+
+</head>
+
+<body>
+<button id="fullscreenBtn">⛶ Full Screen</button>
+<!-- HOME PAGE -->
+
+<div id="home" class="page active">
+<h1 class="title">📚 Study Vid Suraj Mock Test</h1>
+
+<div class="menu">
+
+<button class="menuBtn green" onclick="showPage('sectional')">
+📘 Sectional Mock Test
+</button>
+
+<button class="menuBtn orange" onclick="showPage('previous')">
+📄 Previous Year Question Papers
+</button>
+
+<button class="menuBtn blue" onclick="showPage('fullmock')">
+🎯 Full Mock Test
+</button>
+
+</div>
+</div>
+
+<!-- SECTIONAL PAGE -->
+
+<div id="sectional" class="page">
+<h1 class="title">📘 Sectional Mock Test</h1>
+
+<div class="menu">
+
+<button class="menuBtn green"
+onclick="startSubject('maths')">
+🧮 Mathematics
+</button>
+
+
+
+<button class="menuBtn blue"
+onclick="startSubject('reasoning')">
+🧠 Reasoning
+</button>
+
+<button class="menuBtn orange"
+onclick="startSubject('english')">
+📖 English
+</button>
+
+<button class="menuBtn purple"
+onclick="startSubject('gs')">
+🌍 General Science
+</button>
+
+<button class="menuBtn red"
+onclick="startSubject('currentaffairs')">
+📰 Current Affairs
+</button>
+
+<button class="menuBtn blue"
+onclick="startSubject('computer')">
+💻 Computer
+</button>
+
+<button class="menuBtn orange"
+onclick="startSubject('history')">
+🏛 History
+</button>
+
+
+<button class="menuBtn green"
+onclick="startSubject('geography')">
+🗺 Geography
+</button>
+
+<button class="menuBtn purple"
+onclick="startSubject('polity')">
+⚖ Polity
+</button>
+
+<button class="menuBtn red"
+onclick="startSubject('economics')">
+💰 Economics
+</button>
+
+<button class="menuBtn green" onclick="startSubject('neet')">
+🩺 NEET
+</button>
+
+<button class="menuBtn"
+style="background:#374151;"
+onclick="showPage('home')">
+⬅ Back
+</button>
+
+</div>
+</div>
+
+<!-- PREVIOUS YEAR -->
+
+<div id="previous" class="page">
+
+</div>
+
+<!-- FULL MOCK -->
+
+<div id="fullmock" class="page">
+
+</div>
+
+<!-- MOCK TEST -->
+
+<div id="mock" class="page">
+<h1 id="mockTitle" class="title">Mock Test</h1>
+
+<div class="mockContainer">
+
+<div class="leftPanel">
+
+<div class="topBar">
+
+<div id="timer">120:00</div>
+
+<button id="fullscreenBtn">⛶ Full Screen</button>
+
+</div>
+
+<div id="questions">
+
+<!-- Questions Automatically Load Honge -->
+
+</div>
+
+<div class="navigation">
+
+<button id="prevBtn">◀ Previous</button>
+
+<button id="clearBtn">🗑 Clear</button>
+
+<button id="reviewBtn">🚩 Review</button>
+
+<button id="nextBtn">Save & Next ▶</button>
+
+<button id="submitBtn">Submit Test</button>
+
+</div>
+
+<div id="score"></div>
+
+</div>
+
+<div class="rightPanel">
+
+<h3>Question Palette</h3>
+
+<div id="palette"></div>
+
+</div>
+
+</div>
+</div>
+
+<script>
+//====================================
+// PAGE NAVIGATION
+//====================================
+
+function showPage(pageId){
+
+document.querySelectorAll(".page").forEach(function(page){
+
+page.classList.remove("active");
+
+});
+
+document.getElementById(pageId).classList.add("active");
+
+}
+
+//====================================
+// QUESTION DATABASE
+//====================================
+
+const questionBank={
+
+maths:[],
+
+reasoning:[],
+
+english:[],
+
+gs:[],
+
+computer:[],
+
+currentaffairs:[],
+
+fullmock:[],
+
+neet:[],
+
+
+};
+
+//====================================
+// DEMO QUESTIONS
+//====================================
+
+questionBank.maths.push(
+
+{
+question:"2 + 2 = ?",
+options:["3","4","5","6"],
+answer:1
+},
+
+{
+question:"15 × 3 = ?",
+options:["30","45","50","60"],
+answer:1
+},
+
+{
+question:"Square Root of 144 ?",
+options:["10","11","12","13"],
+answer:2
+}
+
+);
+
+questionBank.neet.push(
+
+{
+question:"Dobson units are used to measure thickness of:",
+options:["Ozone","Troposphere","Stratosphere","CFCs"],
+answer:0
+},
+
+{
+question:"Montreal Protocol was signed in 1987 for control of:",
+options:["Release of greenhouse gases","Emission of ozone depleting substances","Transport of genetically modified organisms","Disposal of e-wastes"],
+answer:1
+},
+
+{
+question:"Snow-blindness in Antarctic region is due to:",
+options:["High reflection of light from snow","Damage to retina caused by infra-red rays","Inflammation of cornea due to high dose of UV-B radiation","Freezing of fluids in the eye"],
+answer:2
+},
+
+{
+question:"Which statement is incorrect regarding the phosphorus cycle?",
+options:["It is a sedimentary cycle","There is appreciable respiratory release of phosphorus into atmosphere","Phosphates are the major phosphorus reservoir","Phosphorus solubilising bacteria facilitate release of phosphorus"],
+answer:1
+},
+
+{
+question:"Air (Prevention and Control of Pollution) Act was amended in 1987 to include:",
+options:["Vehicular exhaust","Noise","PM2.5 particles","Allergy causing pollen"],
+answer:1
+},
+
+{
+question:"According to CPCB, which particulate size causes greater harm to human health?",
+options:["4.0 micrometers","3.5 micrometers","2.5 micrometers","3.0 micrometers"],
+answer:2
+},
+
+{
+question:"Most suitable method for disposal of nuclear waste is:",
+options:["Shoot into space","Bury within rocks deep below the Earth's surface","Dump under deep ocean rocks","Bury under Antarctic ice-cover"],
+answer:1
+},
+
+{
+question:"Which pair of gases is mainly responsible for greenhouse effect?",
+options:["Nitrogen and Sulphur dioxide","Carbon dioxide and Methane","Oxygen and Nitrogen","Ozone and Ammonia"],
+answer:1
+},
+
+{
+question:"Which protocol aimed at reducing CFC emissions?",
+options:["Kyoto Protocol","Geneva Protocol","Montreal Protocol","Gothenburg Protocol"],
+answer:2
+},
+
+{
+question:"Polyblend is used for:",
+options:["Construction of roads","Making plastic sacks","Tubes and pipes","Fertiliser"],
+answer:0
+},
+
+{
+question:"In the stratosphere, which element catalyses ozone degradation?",
+options:["Iron","Carbon","Chlorine (Cl)","Oxygen"],
+answer:2
+},
+
+{
+question:"Which of the following is a secondary pollutant?",
+options:["SO₂","CO","O₃ (Ozone)","CO₂"],
+answer:2
+},
+
+{
+question:"World Ozone Day is celebrated on:",
+options:["22 April","16 September","5 June","21 April"],
+answer:1
+},
+
+{
+question:"Match the following correctly:",
+options:[
+"A-i, B-iii, C-iv, D-ii",
+"A-iii, B-iv, C-i, D-ii",
+"A-ii, B-i, C-iii, D-iv",
+"A-i, B-ii, C-iv, D-iii"
+],
+answer:1
+},
+
+{
+question:"Which statement is NOT valid for aerosols?",
+options:[
+"They cause increased agricultural productivity",
+"Harmful to human health",
+"Alter rainfall and monsoon patterns",
+"Negative impact on agricultural land"
+],
+answer:0
+},
+
+{
+question:"Environment (Protection) Act was passed in:",
+options:["1986","1923","1953","1968"],
+answer:0
+},
+
+
+{
+question:"The increase in concentration of the toxicant at successive trophic levels is referred to as:",
+options:["Bioremediation","Biomagnification","Biotransformation","Eutrophication"],
+answer:1
+},
+
+{
+question:"The highest DDT concentration in an aquatic food chain shall occur in:",
+options:["Phytoplankton","Crab","Seagull","Eel"],
+answer:2
+},
+
+{
+question:"A lake which is rich in organic waste may result in:",
+options:["Mortality of fish due to lack of oxygen","Drying of the lake due to algal bloom","Increased population of fish due to lots of nutrients","Increased population of aquatic organisms due to minerals"],
+answer:0
+},
+
+{
+question:"Biochemical Oxygen Demand (BOD) may not be a good index for pollution for water bodies receiving effluents from:",
+options:["Petroleum industry","Domestic sewage","Sugar industry","Dairy industry"],
+answer:0
+},
+
+{
+question:"Depletion of which gas in the atmosphere can lead to an increased incidence of skin cancers?",
+options:["Methane","Ozone","Nitrous oxide","Ammonia"],
+answer:1
+},
+
+{
+question:"Joint Forest Management Concept was introduced in India during:",
+options:["1970s","1990s","1980s","1960s"],
+answer:2
+},
+
+{
+question:"A river with an inflow of domestic sewage rich in organic waste may result in:",
+options:["Death of fish due to lack of oxygen","Increased production of fish due to biodegradable nutrients","Drying of the river due to algal bloom","Increased population of aquatic food web organisms"],
+answer:0
+},
+
+{
+question:"Rachel Carson's famous book 'Silent Spring' is related to:",
+options:["Noise pollution","Population explosion","Pesticide pollution","Ecosystem management"],
+answer:2
+},
+
+{
+question:"Which of the following is NOT one of the prime health risks associated with greater UV radiation due to depletion of stratospheric ozone?",
+options:["Reduced immune system","Damage to eyes","Increased liver cancer","Increased skin cancer"],
+answer:2
+},
+
+{
+question:"The UN Conference of Parties on climate change in the year 2011 was held in:",
+options:["Peru","South Africa","Poland","Qatar"],
+answer:1
+},
+
+{
+question:"Eutrophication of water bodies leading to killing of fishes is mainly due to non-availability of:",
+options:["Light","Oxygen","Food","Essential minerals"],
+answer:1
+},
+
+{
+question:"Increase in concentration of the toxicant at successive trophic levels is known as:",
+options:["Biomagnification","Biogeochemical","Biotransformation","Biodeterioration"],
+answer:0
+},
+
+{
+question:"Acid rain is caused by increase in the atmospheric concentration of:",
+options:["SO₂ and NO₂","CO₂ and CO","SO₂ and CO","O₃ and dust"],
+answer:0
+},
+
+{
+question:"The UN Conference of Parties on climate change in the year 2012 was held at:",
+options:["Warsaw","Doha","Lima","Durban"],
+answer:1
+},
+
+{
+question:"A scrubber in the exhaust of a chemical industrial plant removes:",
+options:["Gases like sulphur dioxide","Particulate matter of size 5 micrometer or above","Gases like ozone and methane","Particulate matter of size 2.5 micrometer or less"],
+answer:0
+},
+
+{
+question:"The zone of atmosphere in which the ozone layer is present is called:",
+options:["Troposphere","Mesosphere","Stratosphere","Ionosphere"],
+answer:2
+},
+
+{
+question:"Global warming can be controlled by:",
+options:["Increasing deforestation and reducing energy efficiency","Reducing deforestation and cutting down use of fossil fuel","Reducing reforestation and increasing fossil fuel use","Increasing deforestation and slowing human population growth"],
+answer:1
+},
+
+{
+question:"The Air Prevention and Control of Pollution Act came into force in:",
+options:["1981","1990","1985","1975"],
+answer:0
+},
+
+{
+question:"The domestic sewage in large cities:",
+options:["Is processed by aerobic and then anaerobic bacteria in the secondary treatment in STPs","Has a high BOD as it contains both aerobic and anaerobic bacteria","Does not require aeration in STPs","Has very high amounts of suspended solids and dissolved salts"],
+answer:0
+},
+
+{
+question:"Which one of the following is a wrong statement?",
+options:["Most of the forests have been lost in tropical areas","Greenhouse effect is a natural phenomenon","Ozone in upper part of atmosphere is harmful to animals","Eutrophication is a natural phenomenon in freshwater bodies"],
+answer:2
+},
+
+
+{
+question:"In an area where DDT had been used extensively, the population of birds declined significantly because:",
+options:[
+"Many of the birds eggs laid, did not hatch",
+"Earthworms in the area got eradicated",
+"Cobras were feeding exclusively on birds",
+"Birds stopped laying eggs"
+],
+answer:0
+},
+
+{
+question:"Measuring Biochemical Oxygen Demand (BOD) is a method used for:",
+options:[
+"Working out the efficiency of oil driven automobile engines",
+"Estimating the amount of organic matter in sewage water",
+"Measuring the activity of Saccharomyces cerevisiae in producing curd on a commercial scale",
+"Working out the efficiency of R.B.Cs. about their capacity to carry oxygen"
+],
+answer:1
+},
+
+);
+
+
+
+
+
+questionBank.reasoning.push(
+
+{
+question:"Odd One Out",
+options:["Apple","Car","Banana","Mango"],
+answer:1
+}
+
+);
+
+
+questionBank.english.push(
+
+{
+question:"Synonym of Happy",
+options:["Sad","Joyful","Cry","Angry"],
+answer:1
+}
+
+);
+questionBank.gs.push(
+
+{
+question:"अनुच्छेद 243 किससे संबंधित है?",
+options:[
+"पंचायत चुनाव",
+"ग्राम सभा",
+"परिभाषाएँ (Definitions)",
+"पंचायतों का गठन"
+],
+answer:2
+},
+
+{
+question:"ग्राम सभा का प्रावधान किस अनुच्छेद में है?",
+options:[
+"243C",
+"243A",
+"243",
+"243B"
+],
+answer:1
+},
+
+{
+question:"पंचायतों के गठन का प्रावधान किस अनुच्छेद में है?",
+options:[
+"243C",
+"243A",
+"243D",
+"243B"
+],
+answer:3
+},
+
+{
+question:"पंचायतों की संरचना किस अनुच्छेद में वर्णित है?",
+options:[
+"243D",
+"243C",
+"243E",
+"243B"
+],
+answer:1
+},
+
+{
+question:"पंचायतों में सीटों के आरक्षण का प्रावधान किस अनुच्छेद में है?",
+options:[
+"243F",
+"243E",
+"243D",
+"243C"
+],
+answer:2
+},
+
+{
+question:"पंचायतों की अवधि (कार्यकाल) किस अनुच्छेद में है?",
+options:[
+"243G",
+"243D",
+"243E",
+"243F"
+],
+answer:2
+},
+
+{
+question:"पंचायत सदस्यता की अयोग्यता किस अनुच्छेद में है?",
+options:[
+"243F",
+"243H",
+"243E",
+"243G"
+],
+answer:0
+},
+
+{
+question:"पंचायतों की शक्तियाँ, प्राधिकार एवं उत्तरदायित्व किस अनुच्छेद में हैं?",
+options:[
+"243I",
+"243H",
+"243G",
+"243F"
+],
+answer:2
+},
+
+{
+question:"पंचायतों की कर लगाने की शक्ति एवं निधियों का प्रावधान किस अनुच्छेद में है?",
+options:[
+"243I",
+"243J",
+"243H",
+"243G"
+],
+answer:2
+},
+
+{
+question:"राज्य वित्त आयोग का प्रावधान किस अनुच्छेद में है?",
+options:[
+"243J",
+"243H",
+"243K",
+"243I"
+],
+answer:3
+},
+
+{
+question:"पंचायतों के लेखों की लेखा-परीक्षा किस अनुच्छेद में है?",
+options:[
+"243K",
+"243J",
+"243L",
+"243I"
+],
+answer:1
+},
+
+{
+question:"पंचायत चुनाव का प्रावधान किस अनुच्छेद में है?",
+options:[
+"243L",
+"243M",
+"243J",
+"243K"
+],
+answer:3
+},
+
+{
+question:"संघ राज्य क्षेत्रों पर लागू होने का प्रावधान किस अनुच्छेद में है?",
+options:[
+"243M",
+"243L",
+"243N",
+"243K"
+],
+answer:1
+},
+
+{
+question:"कुछ क्षेत्रों पर लागू न होने का प्रावधान किस अनुच्छेद में है?",
+options:[
+"243O",
+"243N",
+"243M",
+"243L"
+],
+answer:2
+},
+
+{
+question:"विद्यमान कानूनों एवं पंचायतों के बने रहने का प्रावधान किस अनुच्छेद में है?",
+options:[
+"243O",
+"243N",
+"243K",
+"243M"
+],
+answer:1
+},
+
+{
+question:"पंचायत चुनावों में न्यायालय के हस्तक्षेप पर रोक किस अनुच्छेद में है?",
+options:[
+"243L",
+"243M",
+"243O",
+"243N"
+],
+answer:2
+}
+
+);
+
+questionBank.computer.push(
+
+{
+question:"CPU stands for ?",
+options:[
+"Central Processing Unit",
+"Central Program Unit",
+"Computer Power Unit",
+"None"
+],
+answer:0
+}
+
+);
+
+questionBank.currentaffairs.push(
+{
+question:"उत्तरी सेना कमान के कमांडर-इन-चीफ कौन बने हैं?",
+options:[
+"प्रकाश मगदूम",
+"लेफ्टिनेंट जनरल प्रतीक शर्मा",
+"राकेश वर्मा",
+"संजय जायसवाल"
+],
+answer:1
+},
+
+{
+question:"यूपीएससी बोर्ड सदस्य किसे नियुक्त किया गया है?",
+options:[
+"सुजाता चतुर्वेदी",
+"अनीता आनंद",
+"भावना अग्रवाल",
+"पूनम गुप्ता"
+],
+answer:0
+},
+
+{
+question:"लोकसभा अनुमान समिति के अध्यक्ष कौन हैं?",
+options:[
+"प्रकाश मगदूम",
+"संजय जायसवाल",
+"संजय खत्रा",
+"हर्षवर्धन पी. चावला"
+],
+answer:1
+},
+
+{
+question:"राष्ट्रीय फिल्म विकास निगम (NFDC) के प्रबंध निदेशक कौन बने हैं?",
+options:[
+"राकेश वर्मा",
+"प्रकाश मगदूम",
+"एन. वेणु",
+"मनोज कुमार झावर"
+],
+answer:1
+},
+
+{
+question:"IMF बोर्ड में भारत के नामित निदेशक कौन हैं?",
+options:[
+"डॉ. अजय कुमार",
+"संतोष कुमार सारंगी",
+"परमेश्वर अय्यर",
+"अनुराग भूषण"
+],
+answer:2
+},
+
+{
+question:"ऑस्ट्रेलिया के प्रधानमंत्री कौन हैं?",
+options:[
+"फ्रेडरिक मर्ज़",
+"एंथोनी अल्बानीज",
+"डैनियल नोबोआ",
+"लुइस मोंटेनेग्रो"
+],
+answer:1
+},
+
+{
+question:"इंडियन इंस्टिट्यूट ऑफ कॉर्पोरेट अफेयर्स (IICA) के महानिदेशक एवं CEO कौन हैं?",
+options:[
+"राकेश वर्मा",
+"ज्ञानेश कुमार सिंह",
+"सरित माहेश्वरी",
+"विभोर जैन"
+],
+answer:1
+},
+
+{
+question:"IIIDEM के महानिदेशक कौन बने हैं?",
+options:[
+"आशीष गोयल",
+"राकेश वर्मा",
+"एन. वेणु",
+"शैलेन्द्र नाथ गुप्ता"
+],
+answer:1
+},
+
+{
+question:"मीडिया महानिदेशक कौन हैं?",
+options:[
+"आशीष गोयल",
+"भावना अग्रवाल",
+"कमल हासन",
+"सोहिनी राजोला"
+],
+answer:0
+},
+
+{
+question:"BPCL के अध्यक्ष एवं प्रबंध निदेशक कौन हैं?",
+options:[
+"प्रकाश मगदूम",
+"संजय खत्रा",
+"एस. पद्मनाभन",
+"एन. वेणु"
+],
+answer:1
+},
+
+{
+question:"यमन के प्रधानमंत्री कौन बने हैं?",
+options:[
+"कामिल अल-तैब इदरीस",
+"सालेम सालेह बिन ब्रेक",
+"लुइस मोंटेनेग्रो",
+"डैनियल नोबोआ"
+],
+answer:1
+},
+
+{
+question:"गणतंत्र के राष्ट्रपति कौन बने हैं?",
+options:[
+"डैनियल नोबोआ",
+"जीन-लुसिएन सावी डी टोवे",
+"एंथोनी अल्बानीज",
+"फ्रेडरिक मर्ज़"
+],
+answer:1
+},
+
+{
+question:"टाइटन कंपनी लिमिटेड के MD कौन हैं?",
+options:[
+"फ्रेडरिक मर्ज़",
+"एन. वेणु",
+"वेंकटेश कोरला",
+"महेश कुमार नुतलापति"
+],
+answer:0
+},
+
+{
+question:"पोप लियो XIV कौन बने हैं?",
+options:[
+"डॉ. अजय कुमार",
+"कार्डिनल रॉबर्ट फ्रांसिस प्रीवोस्ट",
+"न्यायमूर्ति सूर्यकांत",
+"हर्षवर्धन पी. चावला"
+],
+answer:1
+},
+
+{
+question:"राष्ट्रीय विधिक सेवा प्राधिकरण (NALSA) के कार्यकारी अध्यक्ष कौन हैं?",
+options:[
+"डी.वाई. चंद्रचूड़",
+"न्यायमूर्ति सूर्यकांत",
+"न्यायमूर्ति केम्पैया सोमशेखर",
+"डॉ. अजय कुमार"
+],
+answer:1
+},
+
+{
+question:"कनाडा की विदेश मंत्री कौन बनी हैं?",
+options:[
+"सुजाता चतुर्वेदी",
+"अनीता आनंद",
+"भावना अग्रवाल",
+"सोहिनी राजोला"
+],
+answer:1
+},
+
+{
+question:"रक्षा सचिव एवं UPSC अध्यक्ष का कार्यभार किसने संभाला?",
+options:[
+"न्यायमूर्ति सूर्यकांत",
+"डॉ. अजय कुमार",
+"ज्ञानेश कुमार सिंह",
+"संतोष कुमार सारंगी"
+],
+answer:1
+},
+
+{
+question:"ब्रिक्स चेंबर ऑफ कॉमर्स एंड इंडस्ट्री के अध्यक्ष कौन बने हैं?",
+options:[
+"संजय खत्रा",
+"हर्षवर्धन पी. चावला",
+"एस. पद्मनाभन",
+"एन. वेणु"
+],
+answer:1
+},
+
+{
+question:"SECI के CMD कौन बने हैं?",
+options:[
+"डॉ. समीर वी. कामत",
+"संतोष कुमार सारंगी",
+"रमन अग्रवाल",
+"मनोज कुमार झावर"
+],
+answer:1
+},
+
+{
+question:"MCC के अध्यक्ष कौन बने हैं?",
+options:[
+"विटोल्ड बांका",
+"यांग यांग",
+"एंड स्मिथ",
+"लुइस मोंटेनेग्रो"
+],
+answer:2
+},
+
+{
+question:"दिल्ली राष्ट्रीय विधि विश्वविद्यालय में विशिष्ट प्रोफेसर किसे नियुक्त किया गया?",
+options:[
+"न्यायमूर्ति सूर्यकांत",
+"डी.वाई. चंद्रचूड़",
+"न्यायमूर्ति केम्पैया सोमशेखर",
+"डॉ. अजय कुमार"
+],
+answer:1
+},
+
+{
+question:"Hewlett Packard Enterprise की वरिष्ठ उपाध्यक्ष एवं प्रबंध निदेशक कौन बनी हैं?",
+options:[
+"अनीता आनंद",
+"भावना अग्रवाल",
+"सरित माहेश्वरी",
+"सोहिनी राजोला"
+],
+answer:1
+},
+
+{
+question:"स्वीडन में भारत के राजदूत कौन बने हैं?",
+options:[
+"ज्ञानेश कुमार सिंह",
+"अनुराग भूषण",
+"राकेश वर्मा",
+"परमेश्वर अय्यर"
+],
+answer:1
+},
+
+{
+question:"CEO एवं प्रमुख प्रबंधकीय कर्मचारी कौन बने हैं?",
+options:[
+"विभोर जैन",
+"सरित माहेश्वरी",
+"रमन अग्रवाल",
+"एन. वेणु"
+],
+answer:1
+},
+
+{
+question:"ब्रिस्बेन समन्वय आयोग की अध्यक्ष कौन बनी हैं?",
+options:[
+"अनीता आनंद",
+"मिकाएला कोजुआंगको जावोर्स्की",
+"भावना अग्रवाल",
+"पूनम गुप्ता"
+],
+answer:1
+},
+
+{
+question:"LIC के प्रबंध निदेशक किन्हें नियुक्त किया गया?",
+options:[
+"डॉ. अजय कुमार एवं संतोष कुमार सारंगी",
+"दिनेश पंत एवं रत्नाकर पटनायक",
+"एन. वेणु एवं रमन अग्रवाल",
+"हर्षवर्धन पी. चावला एवं संजय खत्रा"
+],
+answer:1
+},
+
+{
+question:"प्रादेशिक सेना में लेफ्टिनेंट कर्नल (मानद) किसे बनाया गया?",
+options:[
+"शुभमन गिल",
+"नीरज चोपड़ा",
+"अनिल कुंबले",
+"राकेश वर्मा"
+],
+answer:1
+},
+
+{
+question:"COP-30 के लिए दक्षिण एशिया के दूत कौन बने हैं?",
+options:[
+"डॉ. समीर वी. कामत",
+"डॉ. अरुणाभ घोष",
+"अनुराग भूषण",
+"डॉ. अजय कुमार"
+],
+answer:1
+},
+
+{
+question:"IRMAI के अध्यक्ष कौन बने हैं?",
+options:[
+"संतोष कुमार सारंगी",
+"एम.एन. श्रीनिवासु",
+"एन. वेणु",
+"एस. पद्मनाभन"
+],
+answer:1
+},
+
+{
+question:"कार्यवाहक CEO कौन बने हैं?",
+options:[
+"मनोज कुमार झावर",
+"विभोर जैन",
+"सरित माहेश्वरी",
+"रमन अग्रवाल"
+],
+answer:1
+},
+{
+question:"सूडान के प्रधानमंत्री कौन बने हैं?",
+options:[
+"सालेम सालेह बिन ब्रेक",
+"कामिल अल-तैब इदरीस",
+"लुइस मोंटेनेग्रो",
+"एंथोनी अल्बानीज"
+],
+answer:1
+},
+
+{
+question:"PTC इंडिया के CMD कौन बने हैं?",
+options:[
+"एन. वेणु",
+"मनोज कुमार झावर",
+"संजय खत्रा",
+"एस. पद्मनाभन"
+],
+answer:1
+},
+
+{
+question:"मणिपुर उच्च न्यायालय के मुख्य न्यायाधीश कौन बने हैं?",
+options:[
+"न्यायमूर्ति सूर्यकांत",
+"न्यायमूर्ति केम्पैया सोमशेखर",
+"डी.वाई. चंद्रचूड़",
+"डॉ. अजय कुमार"
+],
+answer:1
+},
+
+{
+question:"समुद्री उत्पाद निर्यात विकास प्राधिकरण (MPEDA) के निदेशक कौन बने हैं?",
+options:[
+"संतोष कुमार सारंगी",
+"राम मोहन एमके",
+"रमन अग्रवाल",
+"विभोर जैन"
+],
+answer:1
+},
+
+{
+question:"भारत के टेस्ट कप्तान कौन बने हैं?",
+options:[
+"रोहित शर्मा",
+"विराट कोहली",
+"शुभमन गिल",
+"केएल राहुल"
+],
+answer:2
+},
+
+{
+question:"इक्वाडोर के राष्ट्रपति कौन बने हैं?",
+options:[
+"एंथोनी अल्बानीज",
+"डैनियल नोबोआ",
+"जीन-लुसिएन सावी डी टोवे",
+"फ्रेडरिक मर्ज़"
+],
+answer:1
+},
+
+{
+question:"कर्नाटक वन विभाग एवं वन्यजीव संरक्षण के ब्रांड एंबेसडर कौन बने हैं?",
+options:[
+"नीरज चोपड़ा",
+"अनिल कुंबले",
+"शुभमन गिल",
+"डॉ. अरुणाभ घोष"
+],
+answer:1
+},
+
+{
+question:"दक्षिण एवं दक्षिण-पूर्व एशिया के लिए कॉर्पोरेट बैंक प्रमुख कौन बने हैं?",
+options:[
+"अनुराग भूषण",
+"प्रशांत ठक्कर",
+"सरित माहेश्वरी",
+"एन. वेणु"
+],
+answer:1
+},
+
+{
+question:"निकुसोर डेन के अध्यक्ष कौन बने हैं?",
+options:[
+"विटोल्ड बांका",
+"यांग यांग",
+"निकुसोर डेन",
+"एस. पद्मनाभन"
+],
+answer:2
+},
+
+{
+question:"DRDO के अध्यक्ष एवं DDR&D के सचिव कौन बने हैं?",
+options:[
+"डॉ. अजय कुमार",
+"डॉ. समीर वी. कामत",
+"ज्ञानेश कुमार सिंह",
+"हर्षवर्धन पी. चावला"
+],
+answer:1
+},
+
+{
+question:"प्रबंध निदेशक (MD) कौन बने हैं?",
+options:[
+"मनोज कुमार झावर",
+"एन. वेणु",
+"रमन अग्रवाल",
+"विभोर जैन"
+],
+answer:1
+},
+
+{
+question:"वित्त उद्योग विकास परिषद (FIDC) के CEO कौन बने हैं?",
+options:[
+"सरित माहेश्वरी",
+"रमन अग्रवाल",
+"एन. वेणु",
+"विभोर जैन"
+],
+answer:1
+},
+
+{
+question:"रक्षा संपदा के महानिदेशक कौन बने हैं?",
+options:[
+"राकेश वर्मा",
+"शैलेन्द्र नाथ गुप्ता",
+"संतोष कुमार सारंगी",
+"ज्ञानेश कुमार सिंह"
+],
+answer:1
+},
+
+{
+question:"पुर्तगाल के प्रधानमंत्री कौन बने हैं?",
+options:[
+"एंथोनी अल्बानीज",
+"सालेम सालेह बिन ब्रेक",
+"लुइस मोंटेनेग्रो",
+"कामिल अल-तैब इदरीस"
+],
+answer:2
+},
+
+{
+question:"विश्व डोपिंग रोधी एजेंसी (WADA) के अध्यक्ष कौन बने हैं?",
+options:[
+"यांग यांग",
+"विटोल्ड बांका",
+"एंड स्मिथ",
+"एस. पद्मनाभन"
+],
+answer:1
+},
+
+{
+question:"विश्व डोपिंग रोधी एजेंसी (WADA) की उपाध्यक्ष कौन बनी हैं?",
+options:[
+"अनीता आनंद",
+"यांग यांग",
+"भावना अग्रवाल",
+"मिकाएला कोजुआंगको जावोर्स्की"
+],
+answer:1
+},
+
+{
+question:"टाटा केमिकल्स के अध्यक्ष कौन बने हैं?",
+options:[
+"संजय खत्रा",
+"एस. पद्मनाभन",
+"एन. वेणु",
+"रमन अग्रवाल"
+],
+answer:1
+},
+
+{
+question:"वैश्विक मुख्य कार्यकारी अधिकारी (Global CEO) कौन बने हैं?",
+options:[
+"विभोर जैन",
+"वेंकटेश कोरला",
+"मनोज कुमार झावर",
+"एन. वेणु"
+],
+answer:1
+},
+
+{
+question:"वैश्विक मुख्य वित्तीय अधिकारी (Global CFO) कौन बने हैं?",
+options:[
+"रमन अग्रवाल",
+"महेश कुमार नुतलापति",
+"संतोष कुमार सारंगी",
+"हर्षवर्धन पी. चावला"
+],
+answer:1
+},
+
+{
+question:"अफ्रीकी विकास बैंक के अध्यक्ष कौन बने हैं?",
+options:[
+"डैनियल नोबोआ",
+"सिडी ओल्ड ताह",
+"जीन-लुसिएन सावी डी टोवे",
+"कामिल अल-तैब इदरीस"
+],
+answer:1
+},
+
+{
+question:"तेलंगाना ग्रामीण बैंक के अध्यक्ष कौन बने हैं?",
+options:[
+"शिवसुब्रमणियन रामन",
+"के. प्रशपा रेड्डी",
+"एससी राल्हन",
+"पूनम गुप्ता"
+],
+answer:1
+},
+
+
+
+);
+
+//====================================
+// GLOBAL VARIABLES
+//====================================
+
+let currentSubject="";
+
+let currentQuestion=0;
+
+let currentQuestions=[];
+
+let userAnswers=[];
+
+let reviewQuestions=[];
+
+let subjectTime = {
+
+maths:7200,          // 2 घंटे
+
+reasoning:3600,      // 1 घंटा
+
+english:2700,        // 45 मिनट
+
+gs:3600,             // 1 घंटा
+
+computer:1800,       // 30 मिनट
+
+currentaffairs:1200, // 20 मिनट
+
+neet:600,          // 10 minute
+
+fullmock:7200
+
+};
+//====================================
+// START SUBJECT
+//====================================
+
+function startSubject(subject){
+
+currentSubject=subject;
+
+document.getElementById("mockTitle").innerHTML=
+subject.toUpperCase()+" Mock Test";
+
+showPage("mock");
+
+timerSeconds = subjectTime[subject];
+
+loadQuestions();
+
+}
+
+//====================================
+// LOAD QUESTIONS
+//====================================
+
+function loadQuestions(){
+
+currentQuestions=questionBank[currentSubject];
+
+currentQuestion=0;
+
+userAnswers=new Array(currentQuestions.length).fill(null);
+
+renderQuestions();
+
+createPalette();
+
+showQuestion();
+
+}
+
+//====================================
+// RENDER QUESTIONS
+//====================================
+
+function renderQuestions(){
+
+let html="";
+
+currentQuestions.forEach(function(q,index){
+
+html+=`
+
+<div class="question">
+
+<h3>Q${index+1}. ${q.question}</h3>
+
+`;
+
+q.options.forEach(function(option,i){
+
+html+=`
+
+<label class="option">
+
+<input
+type="radio"
+name="q${index}"
+value="${i}"
+onchange="saveAnswer(${index},${i})">
+
+${String.fromCharCode(65+i)}.
+${option}
+
+</label>
+
+`;
+
+});
+
+html+=`
+
+</div>
+
+`;
+
+});
+
+document.getElementById("questions").innerHTML=html;
+
+}
+
+//====================================
+// SAVE ANSWER
+//====================================
+
+function saveAnswer(questionNo,optionNo){
+
+userAnswers[questionNo]=optionNo;
+
+let btns=document.querySelectorAll(".pbtn");
+
+if(btns[questionNo]){
+btns[questionNo].classList.add("answered");
+}
+
+let question=document.querySelectorAll(".question")[questionNo];
+
+let labels=question.querySelectorAll(".option");
+
+labels.forEach(function(label){
+label.classList.remove("correct");
+label.classList.remove("wrong");
+});
+
+let correct=currentQuestions[questionNo].answer;
+
+if(optionNo==correct){
+
+labels[correct].classList.add("correct");
+
+}else{
+
+labels[optionNo].classList.add("wrong");
+
+labels[correct].classList.add("correct");
+
+}
+
+}
+//====================================
+// CREATE QUESTION PALETTE
+//====================================
+
+function createPalette(){
+
+const palette=document.getElementById("palette");
+
+palette.innerHTML="";
+
+currentQuestions.forEach(function(q,index){
+
+let btn=document.createElement("button");
+
+btn.className="pbtn";
+
+btn.innerHTML=index+1;
+
+btn.onclick=function(){
+
+currentQuestion=index;
+
+showQuestion();
+
+};
+
+palette.appendChild(btn);
+
+});
+
+}
+
+//====================================
+// SHOW QUESTION
+//====================================
+
+function showQuestion(){
+
+const questions=document.querySelectorAll(".question");
+
+questions.forEach(function(q){
+
+q.style.display="none";
+
+});
+
+if(questions.length==0) return;
+
+questions[currentQuestion].style.display="block";
+
+let btns=document.querySelectorAll(".pbtn");
+
+btns.forEach(function(btn){
+
+btn.classList.remove("active");
+
+});
+
+btns[currentQuestion].classList.add("active");
+
+updateButtons();
+
+}
+
+//====================================
+// UPDATE BUTTONS
+//====================================
+
+function updateButtons(){
+
+const prev=document.getElementById("prevBtn");
+
+const next=document.getElementById("nextBtn");
+
+if(currentQuestion==0){
+
+prev.disabled=true;
+
+}else{
+
+prev.disabled=false;
+
+}
+
+if(currentQuestion==currentQuestions.length-1){
+
+next.innerHTML="Finish ▶";
+
+}else{
+
+next.innerHTML="Save & Next ▶";
+
+}
+
+}
+
+//====================================
+// NEXT BUTTON
+//====================================
+
+document.getElementById("nextBtn").onclick=function(){
+
+if(currentQuestion<currentQuestions.length-1){
+
+currentQuestion++;
+
+showQuestion();
+
+}else{
+
+alert("Last Question Reached");
+
+}
+
+};
+
+//====================================
+// PREVIOUS BUTTON
+//====================================
+
+document.getElementById("prevBtn").onclick=function(){
+
+if(currentQuestion>0){
+
+currentQuestion--;
+
+showQuestion();
+
+}
+
+};
+//====================================
+// SUBMIT TEST
+//====================================
+
+document.getElementById("submitBtn").onclick=function(){
+
+clearInterval(countdown);
+
+let correct=0;
+let wrong=0;
+let unanswered=0;
+
+currentQuestions.forEach(function(q,index){
+
+if(userAnswers[index]==null){
+
+unanswered++;
+
+}
+else if(userAnswers[index]==q.answer){
+
+correct++;
+
+}
+else{
+
+wrong++;
+
+}
+
+});
+
+document.getElementById("score").innerHTML=
+
+"<h2>Result</h2>"+
+
+"<br>Total Questions : "+currentQuestions.length+
+
+"<br>✅ Correct : "+correct+
+
+"<br>❌ Wrong : "+wrong+
+
+"<br>⭕ Unanswered : "+unanswered+
+
+"<br><br><h2>Score : "+correct+"/"+currentQuestions.length+"</h2>"+
+
+"<br><br>"+
+
+"<div style='display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:35px;'>"+
+
+"<button onclick='goHome()' style='width:240px;height:65px;border:none;border-radius:20px;font-size:22px;font-weight:bold;color:#fff;background:linear-gradient(135deg,#00ff88,#00994d);box-shadow:0 0 15px #00ff88,0 0 35px rgba(0,255,136,.7),0 12px 25px rgba(0,0,0,.45);cursor:pointer;'>🏠 HOME PAGE</button>"+
+
+"<button onclick='restartTest()' style='width:240px;height:65px;border:none;border-radius:20px;font-size:22px;font-weight:bold;color:#fff;background:linear-gradient(135deg,#ff9800,#ff3d00);box-shadow:0 0 15px #ff9800,0 0 35px rgba(255,152,0,.7),0 12px 25px rgba(0,0,0,.45);cursor:pointer;'>🔄 RESTART TEST</button>"+
+
+"</div>";
+
+};
+
+//====================================
+// CLEAR RESPONSE
+//====================================
+
+document.getElementById("clearBtn").onclick=function(){
+
+let radios=document.getElementsByName("q"+currentQuestion);
+
+radios.forEach(function(r){
+
+r.checked=false;
+
+});
+
+userAnswers[currentQuestion]=null;
+
+};
+
+//====================================
+// REVIEW
+//====================================
+
+document.getElementById("reviewBtn").onclick=function(){
+
+let btn=document.querySelectorAll(".pbtn")[currentQuestion];
+
+btn.style.background="#9C27B0";
+
+btn.style.color="white";
+
+};
+
+//====================================
+// TIMER
+//====================================
+
+let timer=document.getElementById("timer");
+
+let countdown =
+setInterval(function(){
+
+let min=Math.floor(timerSeconds/60);
+
+let sec=timerSeconds%60;
+
+if(sec<10){
+
+sec="0"+sec;
+
+}
+
+timer.innerHTML=min+":"+sec;
+
+if(timerSeconds>0){
+
+timerSeconds--;
+
+}
+else{
+
+document.getElementById("submitBtn").click();
+
+}
+
+},1000);
+//====================================
+// FULL SCREEN
+//====================================
+
+const fullBtn=document.getElementById("fullscreenBtn");
+
+if(fullBtn){
+
+fullBtn.onclick=function(){
+
+if(!document.fullscreenElement){
+
+document.documentElement.requestFullscreen();
+
+fullBtn.innerHTML="❎ Exit Full Screen";
+
+}else{
+
+document.exitFullscreen();
+
+}
+
+};
+
+document.addEventListener("fullscreenchange",function(){
+
+if(document.fullscreenElement){
+
+fullBtn.innerHTML="❎ Exit Full Screen";
+
+}else{
+
+fullBtn.innerHTML="⛶ Full Screen";
+
+}
+
+});
+
+}
+
+//====================================
+// PALETTE UPDATE
+//====================================
+
+document.addEventListener("change",function(e){
+
+if(e.target.type!="radio") return;
+
+let btn=document.querySelectorAll(".pbtn")[currentQuestion];
+
+if(btn){
+
+btn.classList.add("answered");
+
+}
+
+});
+
+//====================================
+// START TIMER
+//====================================
+
+showPage("home");
+
+console.log("Study Mock Test Loaded Successfully");
+//====================================
+// SUBJECT LOADER
+//====================================
+
+function openMaths(){
+
+currentSubject="maths";
+
+startSubject(currentSubject);
+
+}
+
+function openReasoning(){
+
+currentSubject="reasoning";
+
+startSubject(currentSubject);
+
+}
+
+function openEnglish(){
+
+currentSubject="english";
+
+startSubject(currentSubject);
+
+}
+
+function openGS(){
+
+currentSubject="gs";
+
+startSubject(currentSubject);
+
+}
+
+function openComputer(){
+
+currentSubject="computer";
+
+startSubject(currentSubject);
+
+}
+
+function openCurrentAffairs(){
+
+currentSubject="currentaffairs";
+
+startSubject(currentSubject);
+
+}
+
+function openFullMock(){
+
+currentSubject="fullmock";
+
+startSubject(currentSubject);
+
+}
+//==============================
+// PRACTICE MODE
+//==============================
+
+document.addEventListener("change", function(e){
+
+if(e.target.type!="radio") return;
+
+let question=e.target.closest(".question");
+
+let qIndex=[...document.querySelectorAll(".question")].indexOf(question);
+
+let correct=currentQuestions[qIndex].answer;
+
+let options=question.querySelectorAll(".option");
+
+options.forEach(function(opt,index){
+
+opt.classList.remove("correct");
+opt.classList.remove("wrong");
+
+});
+
+if(e.target.value==correct){
+
+options[correct].classList.add("correct");
+
+}else{
+
+options[e.target.value].classList.add("wrong");
+
+options[correct].classList.add("correct");
+
+}
+
+});
+
+function goHome(){
+
+clearInterval(countdown);
+
+document.getElementById("score").innerHTML="";
+
+document.getElementById("questions").innerHTML="";
+
+showPage("home");
+
+}
+
+function restartTest(){
+
+clearInterval(countdown);
+
+document.getElementById("score").innerHTML="";
+
+startSubject(currentSubject);
+
+}
+
+</script>
+
+</body>
+
+</html>
